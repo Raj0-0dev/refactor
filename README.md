@@ -45,6 +45,27 @@ graph TD
 
 ---
 
+## 📖 Usage Guide
+
+### Creating and Reporting Issues
+1. Log in or create an account as a **Citizen**.
+2. Click the **Report Issue** button in the dashboard portal.
+3. Fill out the report form: select the category (Water Supply, Sanitation, etc.), describe the complaint details, and upload an optional image.
+4. Submit the report to publish it to the community feed.
+
+### Tracking and Upvoting
+1. Go to the **Community Feed** tab.
+2. View other neighborhood issues, search or filter by department/status, and upvote unresolved complaints to signal higher priority.
+3. Click on a ticket to inspect its detail timeline milestones and write comment messages.
+
+### Municipal Official Actions
+1. Log in using your registered **Official** credentials.
+2. Under the main dashboard list, click **Claim** to assign an unclaimed department ticket to yourself.
+3. Click the assigned ticket, choose a new progress status (e.g., In Progress, Under Review), and write log details detailing the work.
+4. Click **Resolve** when finished to write closing comments and upload photo evidence.
+
+---
+
 ## 🛰️ API Directory (HTTP REST Contract)
 
 ### 🔐 Authentication Module
@@ -83,6 +104,17 @@ graph TD
 | `GET` | `/api/departments/public-stats` | Public aggregated statistics of resolved/active issues | No |
 
 
+---
+
+## 🔒 Security Features
+
+* **JWT-Based Authorization**: Restricts access to private APIs using JSON Web Token authentication middleware.
+* **Secure Hashing**: Hashes user passwords using high-entropy `bcrypt` salts.
+* **Role-Based Access Control (RBAC)**: Separates and verifies endpoint permissions for Citizens, Officials, and Admins.
+* **CORS Policies**: Explicitly restricts API traffic to registered origins, blocking cross-origin exploits.
+* **Sanitized Query Executions**: Prevents injection attacks using Mongoose ODM schema validation and strict parameter parsing.
+
+---
 
 ## ⚙️ Configuration & Environment Variables
 
@@ -144,3 +176,26 @@ Make sure you have [Node.js](https://nodejs.org/) and [MongoDB](https://www.mong
 
 ### 🏢 Municipal Department Portal
 ![Official Portal](docs/screenshots/official-dashboard.png)
+
+---
+
+## 👥 Team
+* **Harsh Rajput** — Lead Full Stack Developer ([Raj0-0dev](https://github.com/Raj0-0dev))
+
+---
+
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🐛 Known Issues & Limitations
+* File uploads are restricted to `.png`, `.jpg`, and `.jpeg` image formats under 5MB.
+* Real-time notifications and feed synchronization require active network sockets.
+
+---
+
+## 🔮 Future Enhancements
+* **AI Auto-Categorization & Routing**: Integrated LLM parsing to analyze issue descriptions and auto-route them to the correct department.
+* **In-App Live Chat**: Real-time direct messaging between reporters and assigned engineers.
+* **Interactive Heatmaps**: Response time and issue density visualization maps for department leads.
