@@ -257,19 +257,6 @@ neuralpath/
 | `GET` | `/admin/employees` | Retrieve lists of trainees and readiness metrics | Yes (Admin) |
 | `POST` | `/admin/roles` | Create new target role benchmarking criteria | Yes (Admin) |
 | `POST` | `/admin/resources` | Add learning video resources mapped to skills | Yes (Admin) |
-
----
-
-## 👥 Contributors
-*   **Harsh Rajput** ([Raj0-0dev](https://github.com/Raj0-0dev))
-*   **Harshit Maurya** ([harshitmaury-wq](https://github.com/harshitmaury-wq))
-*   **Himanshu Ranjan** ([HimanshTheCoder](https://github.com/HimanshTheCoder))
-
----
-
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
 ## 🐛 Known Issues & Limitations
@@ -289,7 +276,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🖼️ Project Preview
 
 ### 🏠 Trainee Dashboard & Skill Matching
-![Trainee Dashboard](docs/screenshots/trainee-dashboard.png)
+![Trainee Dashboard](docs/screenshots/trainee-dashboar.png)
 
 ### 📊 Adaptive Upskilling Learning Pathway
 ![Adaptive Pathway](docs/screenshots/learning-pathway.png)
