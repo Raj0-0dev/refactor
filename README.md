@@ -298,5 +298,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ![Admin Cohort View](docs/screenshots/admin-dashboard.png)
 
 ---
+---
+
+## 👥 Contributors
+*   **Harsh Rajput** ([Raj0-0dev](https://github.com/Raj0-0dev))
+*   **Harshit Maurya** ([harshitmaury-wq](https://github.com/harshitmaury-wq))
+*   **Himanshu Ranjan** ([HimanshTheCoder](https://github.com/HimanshTheCoder))
+
+---
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 Built with ❤️ by Harsh Rajput, Harshit Maurya & Himanshu Ranjan
