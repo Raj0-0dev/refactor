@@ -1,6 +1,13 @@
-# 🧠 NeuralPath - Automated Trainee Skill Gap Analysis & Adaptive Upskilling Platform
+# 🧠 NeuralPath — Automated Skill Gap Analysis & Adaptive Upskilling Platform
 
-A modern, AI-powered B2B SaaS platform built using the MERN stack. NeuralPath is designed to automate candidate resume auditing, evaluate competency match levels against dynamic job role benchmarks, and construct step-by-step upskilling pathways with curated learning resources.
+[![React v19](https://img.shields.io/badge/React-19.0-blue.svg?logo=react&logoColor=white)](https://react.dev/)
+[![Node.js v20](https://img.shields.io/badge/Node.js-v20-green.svg?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248.svg?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Supabase](https://img.shields.io/badge/Supabase-ObjectStorage-3ECF8E.svg?logo=supabase&logoColor=white)](https://supabase.com/)
+[![Gemini](https://img.shields.io/badge/Gemini-2.5--Flash-8E75C2.svg?logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+NeuralPath is an enterprise-ready B2B SaaS platform designed to automate trainee , competency auditing, and personalized technical upskilling. By leveraging AI-driven resume parsing, dynamic role benchmarking, and adaptive roadmap construction, the platform bridges the gap between hiring skills and team readiness.
 
 ---
 
