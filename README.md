@@ -120,37 +120,18 @@ All API endpoints are prefixed with `/api`. Auth-guarded endpoints expect a bear
 
 ---
 
-## 🗄️ Database Schemas (Mongoose Models)
+## 📸 Screenshots & Interface
 
-```mermaid
-erDiagram
-    User ||--o{ Resume : owns
-    User {
-        string id PK
-        string name
-        string email
-        string password
-        string role "Admin | Trainee"
-    }
-    Resume {
-        string id PK
-        string userId FK
-        string fileUrl
-        string originalName
-        string status "Uploaded | Processed"
-    }
-    Role {
-        string id PK
-        string name "e.g., Backend Developer"
-        string[] requiredSkills
-    }
-    SkillVideo {
-        string id PK
-        string skillName "e.g., React"
-        string title
-        string url
-    }
-```
+*Place application screenshots inside a `/docs/screenshots/` folder to render them in this layout:*
+
+### 🏠 Trainee Dashboard & Skill Matching
+![Trainee Dashboard](docs/screenshots/trainee-dashboard.png)
+
+### 📊 Adaptive Upskilling Learning Pathway
+![Adaptive Pathway](docs/screenshots/learning-pathway.png)
+
+### 🏢 Administrator Talent Overview & Role Benchmarks
+![Admin Cohort View](docs/screenshots/admin-dashboard.png)
 
 ---
 
