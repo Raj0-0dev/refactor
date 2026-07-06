@@ -82,23 +82,7 @@ graph TD
 | :--- | :--- | :--- | :--- |
 | `GET` | `/api/departments/public-stats` | Public aggregated statistics of resolved/active issues | No |
 
----
 
-## 🔌 WebSocket (Socket.io) Communication Map
-
-CityVoice leverages full-duplex WebSockets for instant data synchronization. Below is the active event schema:
-
-### Room Channels
-* **Issue Rooms**: `join-issue` (inbound) and `leave-issue` (inbound) bind client sockets to a specific `issueId` room channel to isolate ticket chat streams.
-
-### Event Emitters & Listeners
-| Event Name | Type | Payload | Trigger / Action |
-| :--- | :--- | :--- | :--- |
-| `'new-bulletin'` | Broadcast | `Bulletin Object` | Fired when an official publishes an announcement; pushes unread count badge. |
-| `'new-comment'` | Room Emit | `Comment Object` | Fired when a comment is created; auto-refreshes comment thread inside open ticket drawer. |
-| `'issue-updated'` | Broadcast | `{ issueId, status, action }` | Fired on claim/status transitions; live-updates dashboard lists and timelines. |
-
----
 
 ## ⚙️ Configuration & Environment Variables
 
