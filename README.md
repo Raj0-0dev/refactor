@@ -180,7 +180,7 @@ Make sure you have [Node.js](https://nodejs.org/) and [MongoDB](https://www.mong
 ---
 
 ## 👥 Team
-* **Harsh Rajput** — Lead Full Stack Developer ([Raj0-0dev](https://github.com/Raj0-0dev))
+* **Harsh Rajput** — ([Raj0-0dev](https://github.com/Raj0-0dev))
 
 ---
 
