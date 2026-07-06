@@ -1,4 +1,4 @@
-# NeuralPath — Automated Skill Gap Analysis & Adaptive Upskilling Platform
+#  NeuralPath — Automated Skill Gap Analysis & Adaptive Upskilling Platform
 
 [![React v19](https://img.shields.io/badge/React-19.0-blue.svg?logo=react&logoColor=white)](https://react.dev/)
 [![Node.js v20](https://img.shields.io/badge/Node.js-v20-green.svg?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
