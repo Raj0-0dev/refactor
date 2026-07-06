@@ -145,3 +145,18 @@ Make sure you have [Node.js](https://nodejs.org/) and [MongoDB](https://www.mong
    npm run dev
    ```
 4. Open your browser and navigate to `http://localhost:5173`.
+
+---
+
+## 📸 Screenshots
+
+*Place your screenshots in a `docs/screenshots/` folder to display them in this layout:*
+
+### 🏠 Landing Page & Connected Departments
+![Landing Page](docs/screenshots/landing-page.png)
+
+### 👤 Citizen Dashboard & Community Feed
+![Citizen Dashboard](docs/screenshots/citizen-dashboard.png)
+
+### 🏢 Municipal Department Portal
+![Official Portal](docs/screenshots/official-dashboard.png)
