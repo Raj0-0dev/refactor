@@ -97,26 +97,26 @@ flowchart TD
 All API endpoints are prefixed with `/api`. Auth-guarded endpoints expect a bearer token: `Authorization: Bearer <JWT_TOKEN>`.
 
 ### 🔐 Authentication Module
-| Method | Endpoint | Payload / Params | Response | Auth Required |
-| :--- | :--- | :--- | :--- | :--- |
-| `POST` | `/auth/register` | `{ name, email, password, role }` | `{ token, user }` | No |
-| `POST` | `/auth/login` | `{ email, password }` | `{ token, user }` | No |
-| `GET` | `/auth/me` | None | `{ user }` | Yes (JWT) |
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/auth/register` | Register user profile and credentials | No |
+| `POST` | `/auth/login` | Authenticate user credentials and return JWT | No |
+| `GET` | `/auth/me` | Retrieve active user profile data | Yes (JWT) |
 
 ### 📋 Resume & Assessment Module
-| Method | Endpoint | Payload / Params | Response | Auth Required |
-| :--- | :--- | :--- | :--- | :--- |
-| `POST` | `/resumes/upload` | Form-data: `file` (PDF), `roleId` | `{ resume, gapAnalysis }` | Yes (Trainee) |
-| `GET` | `/gap-analysis/my-profile` | None | `{ matchPercentage, gaps: [] }` | Yes (Trainee) |
-| `GET` | `/learning-path` | None | `{ modules: [] }` | Yes (Trainee) |
-| `POST` | `/learning-path/complete` | `{ moduleId }` | `{ updatedModule, isCompleted }` | Yes (Trainee) |
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/resumes/upload` | Ingest PDF resume, parse text, and run analysis | Yes (Trainee) |
+| `GET` | `/gap-analysis/my-profile` | Fetch match percentage and core competency gaps | Yes (Trainee) |
+| `GET` | `/learning-path` | Retrieve custom learning modules and progress | Yes (Trainee) |
+| `POST` | `/learning-path/complete` | Mark a learning pathway module as completed | Yes (Trainee) |
 
 ### 🏢 Administration Module
-| Method | Endpoint | Payload / Params | Response | Auth Required |
-| :--- | :--- | :--- | :--- | :--- |
-| `GET` | `/admin/employees` | None | `[{ id, name, readinessScore }]` | Yes (Admin) |
-| `POST` | `/admin/roles` | `{ name, requiredSkills: [] }` | `{ role }` | Yes (Admin) |
-| `POST` | `/admin/resources` | `{ skillName, title, url }` | `{ resource }` | Yes (Admin) |
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/admin/employees` | Retrieve lists of trainees and readiness metrics | Yes (Admin) |
+| `POST` | `/admin/roles` | Create new target role benchmarking criteria | Yes (Admin) |
+| `POST` | `/admin/resources` | Add learning video resources mapped to skills | Yes (Admin) |
 
 ---
 
