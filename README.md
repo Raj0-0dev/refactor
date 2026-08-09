@@ -33,10 +33,11 @@ graph TD
 
 ### 👤 Citizen Features
 * **Interactive Reporting**: Upload issues under specific categories (Water, Roads, Sanitation, etc.) with detailed descriptions and pictures.
-* **Community Feed**: View, upvote, and discuss neighborhood reports submitted by fellow citizens.
-* **Real-Time Timelines**: Follow issue updates (Reported ➡️ Assigned ➡️ In Progress ➡️ Resolved) as they are logged by officials.
+* **Community Feed**: View, follow, and discuss neighborhood reports submitted by fellow citizens.
+* **Persistent Follows**: Follow municipal issues to receive push notifications automatically when updates are made.
+* **Unified Notification Feed**: Live real-time notification drawer showing departmental bulletins and personal status updates chronologically.
+* **Civic Points**: Earn **+50 Civic Points** when your reported complaints are successfully resolved, upgrading your contribution tier badge dynamically.
 * **Live Comments & Discussion**: Participate in room-based chat feeds with assigned technicians on active tickets.
-* **Bulletins & Broadcasts**: Receive instant notifications for system-wide notices or local maintenance announcements.
 
 ### 🏢 Municipal Official Features
 * **Department Filtering**: Officials only see issues belonging to their assigned departments.
@@ -53,9 +54,9 @@ graph TD
 3. Fill out the report form: select the category (Water Supply, Sanitation, etc.), describe the complaint details, and upload an optional image.
 4. Submit the report to publish it to the community feed.
 
-### Tracking and Upvoting
+### Tracking and Following
 1. Go to the **Community Feed** tab.
-2. View other neighborhood issues, search or filter by department/status, and upvote unresolved complaints to signal higher priority.
+2. View other neighborhood issues, search or filter by department/status, and click **Follow** on unresolved complaints to receive progress notifications.
 3. Click on a ticket to inspect its detail timeline milestones and write comment messages.
 
 ### Municipal Official Actions
@@ -75,16 +76,25 @@ graph TD
 | `POST` | `/api/auth/login` | Authenticate credentials and return JWT | No |
 | `GET` | `/api/auth/me` | Fetch active user credentials payload | Yes (JWT) |
 
-### 📋 Issues Module
+### 📋 Issues & Follows Module
 | Method | Endpoint | Description | Auth Required |
 | :--- | :--- | :--- | :--- |
 | `POST` | `/api/issues` | Create and report a new civic issue | Yes |
 | `GET` | `/api/issues` | Retrieve all issues (supports department, priority filters) | Yes |
 | `GET` | `/api/issues/:id` | Fetch detailed issue profile including timeline logs | Yes |
 | `PUT` | `/api/issues/:id` | Update issue parameters (location, details) | Yes |
+| `PUT` | `/api/issues/:id/follow` | Toggle follow/unfollow status for an issue | Yes |
+| `GET` | `/api/issues/followed` | Retrieve all issues followed by the citizen | Yes |
 | `PUT` | `/api/issues/:id/claim` | Assign issue to department official | Yes (Official/Admin) |
 | `PUT` | `/api/issues/:id/status` | Log status transition and write detail update | Yes (Official/Admin) |
 | `PUT` | `/api/issues/:id/resolve` | Mark issue as resolved and upload closing notes | Yes (Official/Admin) |
+
+### 🔔 Notifications Module
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/notifications` | Fetch personal status change notifications | Yes |
+| `PUT` | `/api/notifications/:id/read` | Mark a specific notification as read | Yes |
+| `PUT` | `/api/notifications/read-all` | Mark all personal notifications as read | Yes |
 
 ### 💬 Comments Module
 | Method | Endpoint | Description | Auth Required |
@@ -118,13 +128,19 @@ graph TD
 
 ## ⚙️ Configuration & Environment Variables
 
-Create a `.env` file in the `backend/` directory with these parameters:
+Create env files to set custom connection strings:
 
+### Backend Configuration (`backend/.env`)
 | Variable | Description | Default Value | Production Example |
 | :--- | :--- | :--- | :--- |
 | `PORT` | Local server port binding | `3000` | `10000` |
-| `MONGODB_URI` | MongoDB Connection URI string | `mongodb://localhost:27017/cityvoice` | `mongodb+srv://...` |
+| `MONGO_URI` | MongoDB Connection URI string | `mongodb://localhost:27017/cityvoice` | `mongodb+srv://...` |
 | `JWT_SECRET` | Secret key used for signing web tokens | `your_secret_key` | `3829fba98...` |
+
+### Frontend Configuration (`frontend/.env` or hosting settings)
+| Variable | Description | Default Value | Production Example |
+| :--- | :--- | :--- | :--- |
+| `VITE_API_URL` | Base URL of the deployed backend server | `http://localhost:3000` | `https://api.cityvoice.gov` |
 
 ---
 
@@ -142,9 +158,13 @@ Make sure you have [Node.js](https://nodejs.org/) and [MongoDB](https://www.mong
    ```bash
    npm install
    ```
-3. Run the development server (auto-seeds categories, departments, and test users if MongoDB collections are empty):
+3. Run the development server (auto-seeds default categories & departments if empty):
    ```bash
    npm run dev
+   ```
+4. Seed default municipal official accounts:
+   ```bash
+   npm run seed
    ```
 
 ### 3. Frontend Setup
