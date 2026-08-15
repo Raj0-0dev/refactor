@@ -60,60 +60,41 @@ CityVoice is a production-ready, real-time citizen-to-municipality reporting and
 NeuralPath decouples client-side telemetry dashboards, core REST endpoints, persistent storage layers, and LLM evaluation APIs.
 ## 🛠️ Architecture & System Design
 
-```mermaid
 flowchart TD
-    subgraph Client [React 19 Frontend SPA]
-        A[Admin Dashboard]
-        B[Trainee Dashboard]
-        C[Interactive Progress Graphs]
+
+    subgraph Frontend["Frontend - React"]
+        A["Admin Dashboard"]
+        B["Trainee Dashboard"]
     end
 
-    subgraph Server [Express.js REST API Services]
-        D[Auth Middleware]
-        E[PDF Processing Service]
-        F[AI Evaluation Service]
-        G[Learning Path Mapper]
-graph TD
-    subgraph Client Tier [React SPA Client]
-        A[Citizen Dashboard]
-        B[Official Dashboard]
+    subgraph Backend["Backend - Node.js / Express"]
+        C["REST API"]
+        D["Authentication"]
+        E["AI Evaluation"]
+        F["Learning Path Engine"]
     end
 
-    subgraph Cloud [External & Storage Providers]
-        H[Supabase Object Storage]
-        I[Gemini 2.5 Flash API]
-    subgraph Service Tier [Express.js Core]
-        C[HTTP API Router]
-        D[Socket.io Engine]
+    subgraph External["External Services"]
+        G["Gemini API"]
+        H["Supabase Storage"]
     end
 
-    subgraph DB [Persistence Layer]
-        J[(MongoDB Database)]
-    subgraph Data Tier [Persistence Layer]
-        E[(MongoDB Atlas)]
+    subgraph Database["Database"]
+        I[("MongoDB Atlas")]
     end
 
-    %% Client Actions
-    B -->|Upload PDF Resume| E
-    B -->|Fetch Profile & Stats| G
-    A -->|Set Competency Benchmarks| F
-    
-    %% Server Operations
-    E -->|Write File Stream| H
-    E -->|Extract Plaintext| F
-    F -->|Construct JSON Prompt| I
-    I -->|Structured Output Schema| F
-    F -->|Reconcile Gaps| G
-    G -->|Query Video Mapping| J
-    G -->|Store Gap Profile| J
-    
-    %% Dashboard Sync
-    J -->|Render charts & paths| C
-    A & B -->|REST API Calls| C
-    A & B <-->|Full-Duplex WebSockets| D
-    C & D -->|Mongoose ODM| E
-```
+    A --> C
+    B --> C
 
+    C --> D
+    C --> E
+    C --> F
+
+    E --> G
+    C --> H
+
+    C --> I
+    F --> I
 ### 🔁 The Core Analysis Loop
 1.  **Ingestion & Persistence**: A trainee uploads their PDF resume. Multer streams the binary directly to **Supabase Storage**, which yields a secure, public file url.
 2.  **Plaintext Extraction**: The system extracts the raw text from the file using `pdf-parse`.
